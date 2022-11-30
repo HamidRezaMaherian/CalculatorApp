@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculatorApp.MainPage"
+				 BackgroundColor="Black"
+				 xmlns:controls="clr-namespace:CalculatorApp.Common;assembly=CalculatorApp">
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="1*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<!--#region Labels -->
+		<Label x:Name="mathExpression" Grid.Row="0" Grid.ColumnSpan="4" Text="" Margin="10" HorizontalTextAlignment="End" FontSize="50" VerticalTextAlignment="Center"/>
+		<Label x:Name="expressionResult" Grid.Row="1" Grid.ColumnSpan="4" Text="" Margin="10" HorizontalTextAlignment="End" FontSize="30"  VerticalTextAlignment="Center" TextColor="{StaticResource Gray200}"/>
+		<!--#endregion-->
+		<!--#region Buttons -->
+		<BoxView Grid.Row="2" 
+					Grid.Column="0" 
+					Grid.RowSpan="10" 
+					Grid.ColumnSpan="10" 
+					Color="{StaticResource Gray950}"
+					CornerRadius="20,20,0,0"/>
+
+		<Button Grid.Row="2" Grid.Column="0" Text="AC" FontSize="Large" BackgroundColor="{StaticResource Gray200}" Clicked="BtnClear_Clicked" TextColor="Black"/>
+		<Button Grid.Row="2" Grid.Column="1" Text="+/-" FontSize="20" BackgroundColor="{StaticResource Gray200}" TextColor="Black"/>
+		<controls:OperatorButton Clicked="BtnOperator_Clicked" OperatorType="Remainder" Grid.Row="2" Grid.Column="2" Text="%" BackgroundColor="{StaticResource Gray200}" TextColor="Black"/>
+		<controls:OperatorButton Clicked="BtnOperator_Clicked" OperatorType="Division" Grid.Row="2" Grid.Column="3" Text="/" BackgroundColor="{StaticResource TextColor}"/>
+
+
+		<controls:NumberButton Grid.Row="3" Grid.Column="0" Text="1" Number="1"  Clicked="BtnNumber_Clicked"/>
+		<controls:NumberButton Grid.Row="3" Grid.Column="1" Text="2" Number="2" Clicked="BtnNumber_Clicked"/>
+		<controls:NumberButton Grid.Row="3" Grid.Column="2" Text="3" Number="3" Clicked="BtnNumber_Clicked"/>
+		<controls:OperatorButton Clicked="BtnOperator_Clicked" OperatorType="Multiplication" Grid.Row="3" Grid.Column="3" Text="x" BackgroundColor="{StaticResource TextColor}"/>
+
+		<controls:NumberButton Grid.Row="4" Grid.Column="0" Text="4" Number="4" Clicked="BtnNumber_Clicked"/>
+		<controls:NumberButton Grid.Row="4" Grid.Column="1" Text="5" Number="5" Clicked="BtnNumber_Clicked"/>
+		<controls:NumberButton Grid.Row="4" Grid.Column="2" Text="6" Number="6" Clicked="BtnNumber_Clicked"/>
+		<controls:OperatorButton Clicked="BtnOperator_Clicked" OperatorType="Substraction" Grid.Row="4" Grid.Column="3" Text="-" BackgroundColor="{StaticResource TextColor}"/>
+
+		<controls:NumberButton Grid.Row="5" Grid.Column="0" Text="7" Number="7" Clicked="BtnNumber_Clicked"/>
+		<controls:NumberButton Grid.Row="5" Grid.Column="1" Text="8" Number="8" Clicked="BtnNumber_Clicked"/>
+		<controls:NumberButton Grid.Row="5" Grid.Column="2" Text="9" Number="9" Clicked="BtnNumber_Clicked"/>
+		<controls:OperatorButton Clicked="BtnOperator_Clicked" OperatorType="Addition" Grid.Row="5" Grid.Column="3" Text="+" BackgroundColor="{StaticResource TextColor}"/>
+
+		<controls:NumberButton Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Text="0" Number="0" Clicked="BtnNumber_Clicked"/>
+		<Button Grid.Row="6" Grid.Column="2"  Text="." Clicked="BtnNumber_Clicked"/>
+		<Button Grid.Row="6" Grid.Column="3" Clicked="BtnResult_Clicked" Text="=" BackgroundColor="{StaticResource TextColor}"/>
+		<!--#endregion-->
+	</Grid>
+
+</ContentPage>
